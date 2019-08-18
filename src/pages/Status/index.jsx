@@ -10,8 +10,8 @@ import {
 } from "react-bootstrap";
 import Header from "../../components/Header";
 import APIService from "../../services/APIService";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import LineChart from "../../components/LineChart";
 
 const MODULES_LIST = [
@@ -37,7 +37,7 @@ export default class Status extends Component {
 
   async componentWillMount() {
     MODULES_LIST.map(item => {
-      return APIService.getUptime(item, 10).then(data => {
+      return APIService.getUptime(item, 50).then(data => {
         this.setState({
           modules: [
             ...this.state.modules,
@@ -142,9 +142,9 @@ export default class Status extends Component {
                                   }
                                 },
                                 xaxis: {
-                                  categories: item.history.map(
-                                    it => it.createdAt
-                                  ),
+                                  categories: item.history
+                                    .map(it => it.createdAt)
+                                    .reverse(),
                                   title: {
                                     text: "Date"
                                   }
@@ -158,7 +158,9 @@ export default class Status extends Component {
                               series={[
                                 {
                                   name: "Ping",
-                                  data: item.history.map(it => it.duration)
+                                  data: item.history
+                                    .map(it => it.duration)
+                                    .reverse()
                                 }
                               ]}
                             />
