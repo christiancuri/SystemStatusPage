@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "system-status",
+      "script": "serve",
+      "args": "-s build",
+      "watch": "./src"
+    }
+  ]
+}
