@@ -2,8 +2,7 @@
   "apps": [
     {
       "name": "system-status-page",
-      "script": "yarn",
-      "args": "run start:prod",
+      "script": "server.js",
       "watch": "./build",
       "instances": "max",
       "exec_mode": "cluster"
