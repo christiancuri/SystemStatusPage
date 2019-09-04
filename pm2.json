@@ -2,8 +2,8 @@
   "apps": [
     {
       "name": "system-status-page",
-      "script": "npm",
-      "args": "start:prod",
+      "script": "yarn",
+      "args": "run start:prod",
       "watch": "./build",
       "instances": "max",
       "exec_mode": "cluster"
