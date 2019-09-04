@@ -2,9 +2,11 @@
   "apps": [
     {
       "name": "system-status-page",
-      "script": "serve",
-      "args": "-s build",
-      "watch": "./build"
+      "script": "npm",
+      "args": "start:prod",
+      "watch": "./build",
+      "instances": "max",
+      "exec_mode": "cluster"
     }
   ]
 }
